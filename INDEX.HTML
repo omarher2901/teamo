@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Importante para celulares -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#12000b">
+
+    <title>TE AMOOOO ❤️</title>
+
+    <style>
+        /* ==============================
+           CONFIGURACIÓN GENERAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            position: relative;
+            min-height: 100dvh;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #4b1233 0%,
+                    #250918 35%,
+                    #10030b 70%,
+                    #050105 100%
+                );
+
+            color: white;
+
+            -webkit-user-select: none;
+            user-select: none;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        /* ==============================
+           BRILLO DEL FONDO
+        ============================== */
+
+        .brillo {
+            position: fixed;
+            width: 80vw;
+            height: 80vw;
+            max-width: 600px;
+            max-height: 600px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background: rgba(255, 30, 120, 0.15);
+
+            filter: blur(70px);
+
+            animation: pulsoFondo 4s ease-in-out infinite alternate;
+
+            pointer-events: none;
+        }
+
+        @keyframes pulsoFondo {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.4;
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.9;
+            }
+        }
+
+
+        /* ==============================
+           LLUVIA
+        ============================== */
+
+        #lluvia {
+            position: fixed;
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .te-amo {
+            position: absolute;
+
+            top: -80px;
+
+            white-space: nowrap;
+
+            color: #ff72b7;
+
+            font-size: clamp(13px, 3.8vw, 25px);
+
+            font-weight: 700;
+
+            text-shadow:
+                0 0 5px rgba(255, 60, 150, 0.9),
+                0 0 15px rgba(255, 40, 130, 0.8),
+                0 0 30px rgba(255, 20, 110, 0.5);
+
+            will-change: transform, opacity;
+
+            animation-name: caer;
+
+            animation-timing-function: linear;
+
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes caer {
+
+            0% {
+                transform: translate3d(0, -100px, 0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(0, 115vh, 0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+        /* ==============================
+           CORAZONES
+        ============================== */
+
+        #corazones {
+            position: fixed;
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 2;
+        }
+
+        .corazon {
+            position: absolute;
+
+            bottom: -60px;
+
+            color: #ff397f;
+
+            font-size: clamp(18px, 5vw, 35px);
+
+            text-shadow:
+                0 0 10px #ff397f,
+                0 0 25px #ff176f;
+
+            animation: subir linear infinite;
+
+            will-change: transform, opacity;
+        }
+
+        @keyframes subir {
+
+            0% {
+                transform: translate3d(0, 0, 0) scale(0.5);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(0, -120vh, 0) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+
+        /* ==============================
+           CONTENIDO CENTRAL
+        ============================== */
+
+        .contenido {
+
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            width: 90%;
+
+            text-align: center;
+
+            z-index: 10;
+
+            padding:
+                env(safe-area-inset-top)
+                10px
+                env(safe-area-inset-bottom);
+        }
+
+
+        .corazon-grande {
+
+            font-size: clamp(55px, 18vw, 120px);
+
+            line-height: 1;
+
+            margin-bottom: 10px;
+
+            filter:
+                drop-shadow(0 0 10px #ff397f)
+                drop-shadow(0 0 30px #ff176f);
+
+            animation: latido 1.4s ease-in-out infinite;
+        }
+
+
+        .titulo {
+
+            font-size: clamp(38px, 11vw, 90px);
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            letter-spacing: clamp(2px, 1.5vw, 10px);
+
+            color: white;
+
+            text-shadow:
+                0 0 5px #fff,
+                0 0 15px #ff75b9,
+                0 0 30px #ff3c91,
+                0 0 60px #ff176f;
+
+            animation: latido 1.4s ease-in-out infinite;
+        }
+
+
+        .subtitulo {
+
+            margin-top: 20px;
+
+            color: #ffb8d9;
+
+            font-size: clamp(14px, 4vw, 25px);
+
+            letter-spacing: clamp(1px, 1vw, 5px);
+
+            text-shadow:
+                0 0 10px #ff3c91;
+        }
+
+
+        @keyframes latido {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.07);
+            }
+        }
+
+
+        /* ==============================
+           BOTÓN
+        ============================== */
+
+        .boton {
+
+            margin-top: 30px;
+
+            padding: 14px 28px;
+
+            border: 1px solid rgba(255, 130, 190, 0.8);
+
+            border-radius: 100px;
+
+            background:
+                rgba(255, 50, 130, 0.15);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            -webkit-appearance: none;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 0 15px rgba(255, 50, 130, 0.4);
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .boton:active {
+
+            transform: scale(0.94);
+
+            background:
+                rgba(255, 50, 130, 0.45);
+
+            box-shadow:
+                0 0 30px rgba(255, 50, 130, 0.9);
+        }
+
+
+        /* ==============================
+           EXPLOSIÓN
+        ============================== */
+
+        .particula {
+
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            z-index: 20;
+
+            pointer-events: none;
+
+            color: #ff72b7;
+
+            font-size: clamp(14px, 4vw, 25px);
+
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px #ff176f;
+
+            animation:
+                explosion 1.5s ease-out forwards;
+        }
+
+
+        @keyframes explosion {
+
+            0% {
+
+                transform:
+                    translate3d(0, 0, 0)
+                    scale(0.5);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translate3d(
+                        var(--x),
+                        var(--y),
+                        0
+                    )
+                    scale(1.3);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* ==============================
+           PANTALLAS MUY PEQUEÑAS
+        ============================== */
+
+        @media (max-width: 380px) {
+
+            .titulo {
+                font-size: 34px;
+            }
+
+            .subtitulo {
+                font-size: 13px;
+            }
+
+            .boton {
+                padding: 12px 22px;
+                font-size: 14px;
+            }
+        }
+
+
+        /* ==============================
+           MODO HORIZONTAL
+        ============================== */
+
+        @media (orientation: landscape) and (max-height: 500px) {
+
+            .contenido {
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.75);
+            }
+        }
+
+
+        /* ==============================
+           REDUCIR ANIMACIONES
+           si el dispositivo lo solicita
+        ============================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .te-amo,
+            .corazon,
+            .titulo,
+            .corazon-grande,
+            .brillo {
+                animation-duration: 8s;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Brillo -->
+    <div class="brillo"></div>
+
+
+    <!-- Lluvia de TE AMO -->
+    <div id="lluvia"></div>
+
+
+    <!-- Corazones -->
+    <div id="corazones"></div>
+
+
+    <!-- Mensaje -->
+    <main class="contenido">
+
+        <div class="corazon-grande">
+            ❤️
+        </div>
+
+        <h1 class="titulo">
+            TE AMOOOO
+        </h1>
+
+        <p class="subtitulo">
+            Muchísimo más de lo que imaginas 🥹💕
+        </p>
+
+        <button class="boton" onclick="explosionAmor()">
+            PRESIONA AQUÍ ❤️
+        </button>
+
+    </main>
+
+
+    <script>
+
+        /* =================================
+           LLUVIA DE TE AMO
+        ================================= */
+
+        const lluvia =
+            document.getElementById("lluvia");
+
+        const frases = [
+
+            "TE AMO ❤️",
+            "TE AMOOO 💕",
+            "TE AMOOOO 💗",
+            "TE AMO MUCHO 🥹",
+            "TE AMO ❤️‍🔥",
+            "TE AMOOOOOO 💖",
+            "TE AMO MI AMOR 💕",
+            "TE AMO POR SIEMPRE ❤️",
+            "TE AMO DEMASIADO 💘",
+            "TE AMO INFINITAMENTE 💞"
+
+        ];
+
+
+        const cantidadLluvia =
+            window.innerWidth < 600 ? 45 : 70;
+
+
+        for (
+            let i = 0;
+            i < cantidadLluvia;
+            i++
+        ) {
+
+            const elemento =
+                document.createElement("div");
+
+            elemento.className = "te-amo";
+
+            elemento.textContent =
+                frases[
+                    Math.floor(
+                        Math.random() * frases.length
+                    )
+                ];
+
+
+            /* Posición horizontal */
+
+            elemento.style.left =
+                Math.random() * 100 + "vw";
+
+
+            /* Velocidad */
+
+            elemento.style.animationDuration =
+                (5 + Math.random() * 8) + "s";
+
+
+            /* Inicio aleatorio */
+
+            elemento.style.animationDelay =
+                -(Math.random() * 12) + "s";
+
+
+            /* Tamaño */
+
+            const tamaño =
+                13 + Math.random() * 17;
+
+            elemento.style.fontSize =
+                tamaño + "px";
+
+
+            lluvia.appendChild(elemento);
+        }
+
+
+        /* =================================
+           CORAZONES FLOTANDO
+        ================================= */
+
+        const corazones =
+            document.getElementById("corazones");
+
+
+        const cantidadCorazones =
+            window.innerWidth < 600 ? 20 : 35;
+
+
+        for (
+            let i = 0;
+            i < cantidadCorazones;
+            i++
+        ) {
+
+            const elemento =
+                document.createElement("div");
+
+            elemento.className = "corazon";
+
+
+            elemento.textContent =
+                Math.random() > 0.5
+                    ? "♥"
+                    : "♡";
+
+
+            elemento.style.left =
+                Math.random() * 100 + "vw";
+
+
+            elemento.style.animationDuration =
+                (6 + Math.random() * 8) + "s";
+
+
+            elemento.style.animationDelay =
+                -(Math.random() * 12) + "s";
+
+
+            corazones.appendChild(elemento);
+        }
+
+
+        /* =================================
+           EXPLOSIÓN DE TE AMO
+        ================================= */
+
+        function explosionAmor() {
+
+            const cantidad =
+                window.innerWidth < 600 ? 25 : 40;
+
+
+            for (
+                let i = 0;
+                i < cantidad;
+                i++
+            ) {
+
+                const elemento =
+                    document.createElement("div");
+
+                elemento.className =
+                    "particula";
+
+
+                elemento.textContent =
+                    Math.random() > 0.4
+                        ? "TE AMO ❤️"
+                        : "💕";
+
+
+                const angulo =
+                    Math.random() *
+                    Math.PI * 2;
+
+
+                const distancia =
+                    100 +
+                    Math.random() * 350;
+
+
+                const x =
+                    Math.cos(angulo) *
+                    distancia;
+
+
+                const y =
+                    Math.sin(angulo) *
+                    distancia;
+
+
+                elemento.style.setProperty(
+                    "--x",
+                    x + "px"
+                );
+
+
+                elemento.style.setProperty(
+                    "--y",
+                    y + "px"
+                );
+
+
+                document.body.appendChild(
+                    elemento
+                );
+
+
+                setTimeout(() => {
+
+                    elemento.remove();
+
+                }, 1600);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
